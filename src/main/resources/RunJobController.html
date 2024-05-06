@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpringBatchLatest Application Documentation</title>
+</head>
+<body>
+    <h1>SpringBatchLatest Application Documentation</h1>
+
+    <h2>RunJobController</h2>
+    <p><b>Description:</b> This class is a Spring MVC controller responsible for exposing a REST endpoint (/vinothit/v1/springbatchdemo/runjob) to trigger a Spring Batch job.</p>
+    <h3>Annotations:</h3>
+    <ul>
+        <li>@RestController: Indicates that this class is a controller that handles RESTful requests.</li>
+        <li>@RequestMapping: Specifies the base URI path for all the endpoints in this controller.</li>
+        <li>@RequiredArgsConstructor: Lombok annotation to generate a constructor injecting dependencies defined as final fields.</li>
+    </ul>
+    <h3>Methods:</h3>
+    <ul>
+        <li>csvToDb(): Method mapped to the POST request at /vinothit/v1/springbatchdemo/runjob. It triggers the Spring Batch job by creating job parameters and launching the job using JobLauncher.</li>
+    </ul>
+
+    <h2>JobLauncher</h2>
+    <p><b>Description:</b> This interface is part of Spring Batch and is responsible for launching jobs.</p>
+    <h3>Methods:</h3>
+    <ul>
+        <li>run(Job job, JobParameters jobParameters): Method used to launch a job with the given parameters.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <p><b>Description:</b> This interface represents a Spring Batch job. It defines the lifecycle of a batch job, including starting, stopping, and restarting.</p>
+    <h3>Methods:</h3>
+    <p>This interface does not have any methods of its own. The methods related to job execution are defined in subinterfaces and implementations.</p>
+
+    <h2>JobParametersBuilder</h2>
+    <p><b>Description:</b> A builder class provided by Spring Batch to construct JobParameters instances.</p>
+    <h3>Methods:</h3>
+    <ul>
+        <li>addLong(String key, long value): Adds a long parameter to the job parameters.</li>
+        <li>addString(String key, String value): Adds a string parameter to the job parameters.</li>
+        <li>toJobParameters(): Builds and returns the JobParameters instance based on the added parameters.</li>
+    </ul>
+
+    <h2>JobParameters</h2>
+    <p><b>Description:</b> Represents the parameters used to launch a Spring Batch job.</p>
+    <h3>Constructors:</h3>
+    <p>This class has several constructors, but typically, it is constructed using a JobParametersBuilder.</p>
+
+    <p>These classes together form the infrastructure to trigger and launch a Spring Batch job via a REST endpoint in a Spring Boot application.</p>
+</body>
+</html>
